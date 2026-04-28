@@ -1,0 +1,66 @@
+📂 What is File Handling?
+Definition:
+
+File handling is the process of creating, reading, writing, and managing files in a program.
+It allows programs to store data permanently instead of losing it when the program ends.
+
+Why File Handling is Needed?
+Data in variables is temporary (RAM)
+Files store data permanently (Hard disk)
+Helps in saving, updating, and retrieving data
+
+
+Operations in File Handling :
+1.Create a file
+2.Open a file
+3.Read data from a file
+4.Write data to a file
+5.Append data
+6.Close the file
+r-read
+w-write
+a-append
+
+
+Sample Programs :
+#File Handling -Opening ,reading,writing,closing a file by using python
+
+#1.Opening a File,reading ,closing :
+
+f=open('sample_text.txt',mode='r')
+print(f.read())
+print(f.close())
+
+#2.Writing a File : Note -- When We Write Something in file ,it will Act Like Truncate it will Erase Existing dataa And Takes the Written Words
+f=open('sample_text.txt',mode='w')
+f.write("Hey Peeran its Nice to meet You How are You")
+
+#3.Append : It do not removes the data ,it adds the next
+f=open('sample_text.txt',mode='a')
+f.write("Im Going to HYD")
+f.close()
+
+
+r+ : Opens a file for both reading and writing
+with open("file.txt", "r+") as f:
+    content = f.read()
+  f.write("New Data")
+
+
+
+w+ : Opens file for reading and writing
+Erases all existing content
+
+with open("file.txt", "w+") as f:       (or) We can Use The general Syntax
+    f.write("Hello")
+    f.seek(0)
+    print(f.read())
+
+
+#Openening With Different Files
+with open('Downloads/fact/fact.csv',mode='r') as s:
+    c=s.read()
+    for line in c:
+        print(line)
+
+
