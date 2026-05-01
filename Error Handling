@@ -1,0 +1,109 @@
+🚨 What is Error Handling? 
+
+Error handling is the process of detecting, managing, and responding to errors in a program so that the application doesn’t crash and behaves safely.
+
+Interviewr Definition :
+“Error handling ensures that the application can gracefully recover from unexpected situations instead of crashing, improving reliability and user experience.”
+
+In OUR wORDS : 
+
+syntax :
+try :
+except:
+else:
+finally:
+
+Note : exceept Block Executes When Try block Gives Error,if no erros Else Block Executes ,finally it always Executes 
+
+Types of Errors :
+
+Solve The Real problem :
+items={
+    "tea":20,
+    "chai":25,
+    "coffe":30
+}
+
+def place_order():
+    try:
+        print("menu:",items)
+
+        item=input("Enter item name:").lower()
+        if item not in items:
+            raise ValueError("item not found")
+        
+        qu=int(input("Enter quantity"))
+
+        if qu<=0:
+            raise ValueError("Quantity should be greater than zero")
+        
+        price=items[item]
+        total=price*qu
+        print(f"Total price for {qu} {item} is: {total}")
+
+
+    except ValueError as ve:
+        print("error:",ve) 
+    except ValueError as e:
+        print("error",e)   
+
+    else:
+        print(f"order placed Succesfull wit amount {total}")
+
+
+    finally:
+        print("thank You for Visisting ❤️🤩")   
+
+
+
+place_order()     
+
+
+Same Problem + Multiple Orders 🤩🤩:
+menu = {
+    "tea": 10,
+    "coffee": 20,
+    "sandwich": 50
+}
+
+total_bill = 0
+
+print("Welcome to Tea Café ☕")
+
+while True:
+    try:
+        print("\nMenu:", menu)
+
+        item = input("Enter item (or 'exit'): ").lower()
+
+        if item == "exit":
+            break
+
+        if item not in menu:
+            raise ValueError("Item not available")
+
+        qty = int(input("Enter quantity: "))
+
+        if qty <= 0:
+            raise ValueError("Invalid quantity")
+
+        cost = menu[item] * qty
+        total_bill += cost
+
+        print(f"Added {item} x{qty} = ₹{cost}")
+
+    except ValueError as e:
+        print("Error:", e)
+
+    except Exception as e:
+        print("Unexpected Error:", e)
+
+# 🎯 Discount Logic
+if total_bill > 100:
+    discount = total_bill * 0.1
+    total_bill -= discount
+    print(f"\nDiscount Applied: ₹{discount}")
+
+print(f"\nFinal Bill = ₹{total_bill}")
+print("Thank you ☕")
+
